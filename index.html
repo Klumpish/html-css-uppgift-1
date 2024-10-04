@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo list</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- the font we are using -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-</head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ToDo list</title>
+		<link rel="stylesheet" href="style.css" />
+		<!-- the font we are using -->
 
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;1,300&display=swap"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+		/>
+	</head>
 
-<body class="body">
-    <header class="logo">
-        <a href="https://github.com/Klumpish" target="_blank">
-            <img class="logo" src="img/githubLogo-transformed.webp" alt="Logo-of-cat">
-        </a>
-        <h2 class="headline">Henkes ToDo list</h2>
-        <div class="stats">
-            <p id="numbers">0/0</p>
-        </div>
-        <div>
-            <p id="empty"></p>
-        </div>
-        
-    </header>
+	<body class="body">
+		<div class="container falling">
+			<header class="logo appear">
+				<a
+					id="colorCat"
+					href="https://github.com/Klumpish"
+					target="_blank"
+				>
+					<img
+						class="logo"
+						src="img/githubLogo-transformed.webp"
+						alt="Logo-of-cat"
+					/>
+				</a>
+				<h2 class="headline appear">My ToDo</h2>
+				<div class="stats">
+					<p id="numbers">0 completed</p>
+				</div>
+			</header>
 
-    <div class="main">
-        <form id="task-form" for="taskInput">
-            <input type="text" id="taskInput" name="taskInput" placeholder="New Task ...">
-            <!-- the i class gives us a styled button from the css link we imported -->
-            <button id="newTask" type="submit">
-            <i class="fas fa-plus-square"></i>
-            </button>
-        </form>
+			<div class="main fadeIn">
+				<form id="task-form" for="taskInput">
+					<input
+						type="text"
+						id="taskInput"
+						name="taskInput"
+						placeholder="New Task ..."
+					/>
+					<!-- the i class gives us a styled button from the css link we imported -->
+					<button id="newTask" type="submit">OK</button>
+				</form>
 
-            <div class="todoList">
-                <ul id="task-list">
+				<p id="empty"></p>
 
-                </ul>
-            </div>
-            <a class="clear" id="clear">Clear All</a>
-    </div>
-    
+				<div class="todoList">
+					<ul id="task-list"></ul>
+				</div>
+				<a class="clear" id="clear">Clear All</a>
+			</div>
+		</div>
 
-
-
-    <script src="script.js"></script>
-</body>
+		<script src="script.js"></script>
+	</body>
 </html>
 
 <!-- GitHub Pages ska den upp på -->

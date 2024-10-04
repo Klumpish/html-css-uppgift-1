@@ -1,29 +1,116 @@
-html{
+html {
     min-height: 100vh;
-    background-image: linear-gradient(130deg, #121212,lightgray);
+    background-image: linear-gradient(rgba(255, 198, 196, 255), rgba(254, 125, 124, 255));
+    /* background-image: linear-gradient(180deg, #ffffff, #fe7d7c); */
     background-repeat: no-repeat;
     background-size: cover;
-    /* not as bright */
-    /* color: lightgray; */
-    /* makes our background esier on the eyes */
-    
-}
-.logo{
-    display: flex;
-    margin: auto;
-    flex-direction: column;
-    max-width: 300px;
-    padding: 1.5rem 0;
-    align-items: center;
-    
+
+
 }
 
-p{
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 660px;
+    margin-top: 10px;
+    background-color: white;
+    /* box-shadow: 1px 1px 26px 1px; */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+
+}
+
+.main {
+    justify-content: center;
+    align-items: center;
+}
+
+.falling {
+    /* start above the screen */
+    transform: translateY(-400px);
+    animation: fall 0.7s ease-in-out forwards
+}
+
+
+/* hide elements */
+.appear {
+
+    opacity: 0;
+    animation: appear 0s 0.8s forwards;
+}
+
+.fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.5s 0.9s forwards
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-400px);
+    }
+
+    70% {
+
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes appear {
+    100% {
+        opacity: 1;
+
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.empty {
+    align-items: center;
+    justify-content: center;
+}
+
+/* removes the cat img */
+a#colorCat {
+    display: none;
+}
+
+.completedTask {
+    color: gray;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+.headline {
+    font-family: "Old Standard TT", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 3rem;
+}
+
+p {
     font-size: 1.5rem;
     font-weight: 600;
 }
 
-#numbers{
+/* style for completed task
+#numbers {
     width: 100px;
     height: 100px;
     background-color: purple;
@@ -33,47 +120,47 @@ p{
     border-radius: 50%;
     font-size: 30px;
     font-weight: bold;
-}
+} */
 
-.body{
-    width: 600px;
+.body {
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    align-items: center;
     margin: auto;
     /* gives us the font we want */
     font-family: "Raleway", sans-serif;
 }
 
-.main{
-    padding: 20px;
-}
 
-form{
+
+form {
     background-color: white;
     padding: 15px;
     border-radius: 5px;
     display: flex;
 }
 
-input[type="text"]{
+input[type="text"] {
     height: 30px;
     outline: 0;
-    border: none;
+    border: 1px solid black;
+    border-radius: 2px;
     font-size: 1.5rem;
     font-family: "Raleway", sans-serif;
     color: #595959;
     flex-grow: 1;
 }
 
-button{
+button {
+    margin-left: 5px;
     font-size: 1.5rem;
-    background-color: white;
+    /* background-color: white; */
     outline: 0;
-    border:none;
     color: #595959;
     display: flexbox;
     align-items: end;
+    border: 1px solid black;
+    border-radius: 3px;
 }
 
 
@@ -81,11 +168,11 @@ button{
 
 /* when we hover over the button with our mouse */
 
-button:hover{
-    color:black;
+button:hover {
+    color: black;
 }
 
-.todoList{
+.todoList {
     background-color: white;
     border-radius: 5px;
     margin-top: 20px;
@@ -94,18 +181,11 @@ button:hover{
 
 }
 
-ul{
+ul {
     padding-left: 0px;
     list-style: none;
 }
-/* li{
-    display: flex;
-    
-    border-bottom: 1px solid lightgray;
-    padding: 15px 0;
-    font-size: 1.5rem;
-    color: #595959;
-} */
+
 
 li {
     padding: 10px;
@@ -128,6 +208,7 @@ li input[type="checkbox"] {
 
 li span {
     flex-grow: 1;
+    background-color: white;
 }
 
 li button {
@@ -141,31 +222,31 @@ li button {
 
 
 /* make sure no pointer or click event is captured */
-i{
+i {
     pointer-events: none;
 }
 
-.todo-item{
+.todo-item {
     flex-grow: 1;
 }
 
-.clear{
-    display: flex;
+.clear {
+    display: none;
     justify-content: flex-end;
     padding: 10px 3px;
     cursor: pointer;
     font-size: 1.5rem;
 
 }
-.clear:hover{
-    color:red;
-}
 
-.todo-list-item{
+
+
+.todo-list-item {
     transition: all 0.5s ease-out;
 }
 
-.todo-list-item-fall{
+
+.todo-list-item-fall {
     transform: translateY(12rem) rotateZ('10deg');
     background-color: red;
     border-radius: 5px;

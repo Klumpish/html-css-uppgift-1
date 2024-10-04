@@ -82,6 +82,7 @@ function updateTasks() {
         span.textContent = task.text;
         if (task.completed) {
             span.style.textDecoration = "line-through";
+            span.classList = "completedTask"
         }
 
         li.appendChild(checkbox);
@@ -115,5 +116,5 @@ function updateTaskCounter() {
     const completedTasks = tasks.filter(task => task.completed).length;
 
     const taskCounter = document.querySelector("#numbers");
-    taskCounter.textContent = `${completedTasks}/${totalTasks}`;
+    taskCounter.textContent = `${completedTasks} completed`;
 }
