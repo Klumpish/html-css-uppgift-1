@@ -24,12 +24,13 @@ clear.addEventListener("click", (e) => {
 
 
 
+
 function addTask() {
     const input = document.querySelector("#taskInput")
     const inputText = input.value.trim()
     // checks if inputText is not an empty string
     if (inputText != "") {
-        empty.innerHTML=""
+        empty.innerHTML = ""
         if (inputText) {
 
             // create task object
@@ -49,8 +50,8 @@ function addTask() {
             // clear input
             input.value = "";
         }
-    }else{
-        empty.innerHTML="Please write something"
+    } else {
+        empty.innerHTML = "Please write something"
     }
 }
 
@@ -77,6 +78,7 @@ function updateTasks() {
 
         // line-through text if complete
         const span = document.createElement("span");
+        span.onclick = () => toggleTaskComplete(task.id)
         span.textContent = task.text;
         if (task.completed) {
             span.style.textDecoration = "line-through";
