@@ -51,7 +51,11 @@ function addTask() {
             input.value = "";
         }
     } else {
-        empty.innerHTML = "Please write something"
+        empty.innerHTML = "Input must not be empty"
+        empty.classList.add("flashing")
+        setTimeout(() => {
+            empty.classList.remove("flashing");
+        }, 2000);
     }
 }
 
@@ -64,7 +68,6 @@ function updateTasks() {
 
     tasks.forEach(task => {
         const li = document.createElement("li");
-
         // checkbox
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -73,11 +76,13 @@ function updateTasks() {
 
         // delete button
         const deleteButton = document.createElement('button')
-        deleteButton.innerHTML = `<i class="fa-solid fa-trash-can"></i>`;
+        deleteButton.innerHTML = `&#128465;`;
         deleteButton.onclick = () => deleteTask(task.id);
 
         // line-through text if complete
         const span = document.createElement("span");
+        // animation for span
+        span.classList.add("taskFadeIN")
         span.onclick = () => toggleTaskComplete(task.id)
         span.textContent = task.text;
         if (task.completed) {
@@ -90,6 +95,7 @@ function updateTasks() {
         li.appendChild(deleteButton);
         list.appendChild(li);
     });
+
     // update task counter
     updateTaskCounter();
 }
