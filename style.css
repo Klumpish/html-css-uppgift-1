@@ -261,8 +261,10 @@ li {
     margin-bottom: 5px;
     border-radius: 5px;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    justify-content: center;
     align-items: center;
+    gap: 10px;
     font-size: 1.5rem;
 
 }
@@ -287,10 +289,6 @@ li input[type="checkbox"] {
 
 
 
-li span {
-    flex-grow: 1;
-    /* background-color: white; */
-}
 
 li button {
     /* background-color: red; */
@@ -346,6 +344,7 @@ span {
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
+    cursor: pointer;
 }
 
 .growAnimation {
