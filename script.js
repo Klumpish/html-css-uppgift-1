@@ -68,6 +68,8 @@ function updateTasks() {
 
     tasks.forEach(task => {
         const li = document.createElement("li");
+        li.setAttribute("data-id", task.id); //adds a data-id for easy access
+
         // checkbox
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -76,18 +78,24 @@ function updateTasks() {
 
         // delete button
         const deleteButton = document.createElement('button')
-        deleteButton.innerHTML = `&#128465;`;
+        deleteButton.innerHTML = `&#x1F5D1;`;
         deleteButton.onclick = () => deleteTask(task.id);
 
         // line-through text if complete
         const span = document.createElement("span");
         // animation for span
-        span.classList.add("taskFadeIN")
+        //apply animation only when task is first added
+        if (!task.completed) {
+            span.classList.add("taskFadeIN")
+
+        }
         span.onclick = () => toggleTaskComplete(task.id)
         span.textContent = task.text;
+
         if (task.completed) {
             span.style.textDecoration = "line-through";
-            span.classList = "completedTask"
+            span.classList.remove("taskFadeIN")
+            span.classList.add("completedTask")
         }
 
         li.appendChild(checkbox);
@@ -104,10 +112,25 @@ function toggleTaskComplete(id) {
     tasks = tasks.map(task => {
         if (task.id === id) {
             task.completed = !task.completed; //changes the completed status
+
+            // update the specific task element in the DOM
+            const taskElement = document.querySelector(`[data-id='${task.id}'] span`);
+            if (taskElement) {
+                if (task.completed) {
+                    taskElement.style.textDecoration = "line-Through";
+                    taskElement.classList.remove("taskFadeIN");
+                    taskElement.classList.add("completedTask");
+
+                } else {
+                    taskElement.style.textDecoration = "none";
+                    taskElement.classList.remove("completedTask")
+                }
+            }
         }
         return task;
     });
-    updateTasks();
+    // updateTasks();
+    updateTaskCounter();
 }
 
 
