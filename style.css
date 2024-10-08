@@ -86,7 +86,7 @@ html {
 .taskFadeIN {
     opacity: 0;
     transform: translateY(30px);
-    animation: taskFadeIn 0.2s forwards;
+    animation: taskFadeIn 0.5s ease forwards;
 }
 
 @keyframes taskFadeIn {
@@ -269,15 +269,7 @@ li {
 
 }
 
-@keyframes grow {
-    0% {
-        transform: scaleY(0);
-    }
 
-    100% {
-        transform: scaleY(1);
-    }
-}
 
 li input[type="checkbox"] {
     margin-right: 10px;
@@ -351,4 +343,14 @@ span {
     transform: scaleY(0);
     transform-origin: bottom;
     animation: grow 0.5s forwards;
+}
+
+@keyframes grow {
+    0% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
 }
